@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<document>
+    <meta>
+        <titles>
+            <title>Test NOvel</title>
+        </titles>
+        <authors>
+            <author></author>
+        </authors>
+    </meta>
+    <chapters>
+        <chapter position="0">
+            <titles>
+                <title>Chapter 1: Blah</title>
+            </titles>
+            <characters>
+
+            </characters>
+            <text>
+The quick brown fox jumped over the lazy dog
+            </text>
+        </chapter>
+        <chapter position="1">
+            <titles>
+                <title>Chapter 2: Do-dah</title>
+            </titles>
+            <characters>
+
+            </characters>
+            <text>
+The rain in Spain stays mainly the same in the plains
+            </text>
+        </chapter>
+    </chapters>
+
+</document>
