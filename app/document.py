@@ -2,18 +2,21 @@
 class Document():
     def __init__(self, xmldoc):
         self.xmldoc = xmldoc
-        self.parseDocument()
         self.chapters = []
         self.characters = {}
+        print("Initialized Document...")
+        self.parseDocument()
 
     def parseDocument(self):
         print("I should validate against a schema...to do later")
         chapterlist = self.xmldoc.xpath("chapters/chapter")
         for c in chapterlist:
+            print("Found chapter: "+str(c.attrib))
             tmpc = Chapter(c)
             self.chapters.append(tmpc)
         characterlist = self.xmldoc.xpath("characters/character")
         for c in characterlist:
+            print("Found character: " + str(c.attrib))
             tmpc = Character(c)
             characters[tmpc.attrib["id"]] = tmpc
 

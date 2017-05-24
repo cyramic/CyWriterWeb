@@ -4,6 +4,7 @@ from app import app
 import os
 import urllib.parse
 from lxml import etree
+from . import document
 import redis
 
 @app.route('/')
@@ -22,13 +23,14 @@ def listdocs():
 
 @app.route('/opendoc/<filename>')
 def opendoc(filename):
-    redis_db = redis.StrictRedis(host="localhost", port=6379, db=0)
-
     filename = urllib.parse.unquote(filename)
     print(filename)
-    docobj = etree.parse("./app/documents/"+filename)
-
+    xmlobj = etree.parse("./app/documents/"+filename)
+    print("Opened XML object")
+    docobj = document.Document(xmlobj)
+    print(docobj)
+    # Put this into a local cache so that it can be queried / saved (redis)
     # Put this into a local cache so that it can be queried / saved (redis)
 
 
-    return docobj.xpath("chapters/chapter[@position='0']/text")[0].text
+    return xmlobj.xpath("chapters/chapter[@position='0']/text")[0].text
